@@ -1,0 +1,16 @@
+{
+  "name": "週間献立プラン",
+  "short_name": "週間献立",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7fbef",
+  "theme_color": "#eef9df",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
