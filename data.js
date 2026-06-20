@@ -5,6 +5,10 @@
   const SERVINGS_NOTE = "夕食は大人2名分、主菜と副菜は翌日の母の昼食1名分まで取り分ける3食分目安。";
   const SOURCE_NAME = "DELISH KITCHEN";
 
+  function delishSearchUrl(query) {
+    return `https://delishkitchen.tv/search?q=${encodeURIComponent(query)}`;
+  }
+
   function main(id, title, sourceUrl, sourceTitle, ingredients, seasonings, note, prep, finish) {
     return {
       id,
@@ -375,6 +379,97 @@
     )
   ];
 
+  const replacementSides = [
+    side(
+      "spinach_goma_ae",
+      "ほうれん草のごま和え",
+      delishSearchUrl("ほうれん草のごま和え"),
+      "ほうれん草のごま和え",
+      ["ほうれん草 2袋", "白すりごま 大さじ4"],
+      ["砂糖 大さじ1", "しょうゆ 大さじ1と1/2"],
+      "やわらかく食べやすい定番副菜。翌昼分は水気を軽く切って保存する。",
+      ["ほうれん草を洗い、根元を切る。", "ごま衣の調味料を合わせる。"],
+      ["ほうれん草をゆでて水気をしぼり、ごま衣で和える。", "翌昼分を取り分ける。"]
+    ),
+    side(
+      "komatsuna_aburaage_nibitashi",
+      "小松菜と油揚げの煮びたし",
+      delishSearchUrl("小松菜と油揚げの煮びたし"),
+      "小松菜と油揚げの煮びたし",
+      ["小松菜 2袋", "油揚げ 2枚"],
+      ["みりん 大さじ2", "しょうゆ 大さじ2", "和風顆粒だし 小さじ1/2", "水 200cc"],
+      "温め直してもおいしい副菜。翌昼は煮汁ごと少量入れる。",
+      ["小松菜を食べやすく切り、油揚げは油抜きして切る。", "煮汁を合わせる。"],
+      ["小松菜と油揚げを煮て味を含ませる。", "翌昼分を煮汁ごと取り分ける。"]
+    ),
+    side(
+      "cucumber_wakame_sunomono",
+      "きゅうりとわかめの酢の物",
+      delishSearchUrl("きゅうりとわかめの酢の物"),
+      "きゅうりとわかめの酢の物",
+      ["きゅうり 3本", "乾燥わかめ 大さじ3", "白いりごま 適量"],
+      ["酢 大さじ3", "砂糖 大さじ1", "しょうゆ 小さじ2", "塩 少々"],
+      "さっぱりした箸休め。主菜がこってりした日に合わせやすい。",
+      ["きゅうりを薄切りにして塩もみし、わかめを戻す。", "合わせ酢を作る。"],
+      ["水気をしぼって合わせ酢で和える。", "翌昼分は汁気を少なめにして保存する。"]
+    ),
+    side(
+      "kabocha_nimono",
+      "かぼちゃの煮物",
+      delishSearchUrl("かぼちゃの煮物"),
+      "かぼちゃの煮物",
+      ["かぼちゃ 1/3個"],
+      ["砂糖 大さじ1", "みりん 大さじ2", "しょうゆ 大さじ2", "和風顆粒だし 小さじ1/2", "水 250cc"],
+      "甘めで食べやすく、翌昼にも向く作り置き副菜。",
+      ["かぼちゃを一口大に切り、煮汁を合わせる。"],
+      ["かぼちゃを煮て冷ましながら味を含ませる。", "翌昼分を先に取り分ける。"]
+    ),
+    side(
+      "carrot_shirishiri",
+      "にんじんしりしり",
+      delishSearchUrl("にんじんしりしり"),
+      "にんじんしりしり",
+      ["にんじん 3本", "卵 2個"],
+      ["ごま油 大さじ1", "しょうゆ 大さじ1", "和風顆粒だし 小さじ1/2", "塩こしょう 少々"],
+      "卵入りで食べやすい炒め副菜。翌昼は温め直しやすい。",
+      ["にんじんを千切りにし、卵を溶く。", "調味料を用意する。"],
+      ["にんじんを炒め、卵と調味料を加えて仕上げる。", "翌昼分を取り分ける。"]
+    ),
+    side(
+      "kinpira_gobo",
+      "きんぴらごぼう",
+      delishSearchUrl("きんぴらごぼう"),
+      "きんぴらごぼう",
+      ["ごぼう 2本", "にんじん 1本", "白いりごま 大さじ1"],
+      ["ごま油 大さじ1", "酒 大さじ2", "みりん 大さじ2", "砂糖 大さじ1", "しょうゆ 大さじ2"],
+      "しっかり味で翌昼にも便利。細めに切ると食べやすい。",
+      ["ごぼうとにんじんを細切りにし、ごぼうは水にさらす。", "調味料を合わせる。"],
+      ["ごぼうとにんじんを炒め、調味料で炒め煮にする。", "ごまをふって翌昼分を取り分ける。"]
+    ),
+    side(
+      "cabbage_shiokonbu_namul",
+      "キャベツの塩昆布ナムル",
+      delishSearchUrl("キャベツの塩昆布ナムル"),
+      "キャベツの塩昆布ナムル",
+      ["キャベツ 1/4玉", "塩昆布 大さじ3", "白いりごま 適量"],
+      ["ごま油 大さじ1", "塩 少々"],
+      "火を使わず短時間で出せる副菜。水気をしぼると翌昼も食べやすい。",
+      ["キャベツを細切りにし、塩をふって少し置く。"],
+      ["水気をしぼり、塩昆布とごま油で和える。", "翌昼分を取り分ける。"]
+    ),
+    side(
+      "broccoli_goma_mayo",
+      "ブロッコリーのごまマヨ和え",
+      delishSearchUrl("ブロッコリーのごまマヨ和え"),
+      "ブロッコリーのごまマヨ和え",
+      ["ブロッコリー 2株", "白すりごま 大さじ3"],
+      ["マヨネーズ 大さじ3", "しょうゆ 小さじ2", "砂糖 小さじ1"],
+      "やわらかくゆでると食べやすい。主菜の味が濃い日にも合わせやすい。",
+      ["ブロッコリーを小房に分け、ごまマヨだれを合わせる。"],
+      ["ブロッコリーをゆでて水気を切り、ごまマヨだれで和える。", "翌昼分を取り分ける。"]
+    )
+  ];
+
   const readyItems = [
     ready("hiyayakko", "冷奴", ["絹豆腐 1丁", "小ねぎ 適量"], ["しょうゆ または ポン酢"], "切って薬味をのせるだけ。", ["豆腐を軽く水切りする。"], ["小鉢に盛り、小ねぎと調味料を添える。"]),
     ready("edamame", "自然解凍の枝豆", ["冷凍枝豆 1袋"], ["必要なら塩 少々"], "自然解凍可の商品を選び、皿に出すだけ。", ["枝豆を解凍する。"], ["器に盛る。"]),
@@ -387,6 +482,23 @@
     ready("asazuke", "市販浅漬け", ["市販浅漬け 1パック"], ["追加なし"], "箸休めとして出すだけ。", ["水気を軽く切る。"], ["小鉢に盛る。"]),
     ready("goma_tofu", "ごま豆腐", ["ごま豆腐 3個"], ["付属たれ"], "やわらかく食べやすい。", ["冷蔵庫で冷やしておく。"], ["器に出してたれを添える。"])
   ];
+
+  const EXCLUDED_MENU_PATTERN = /トマト|マリネ/;
+  const dishTextFields = ["id", "title", "sourceTitle", "note"];
+
+  function dishHasExcludedTerm(dish) {
+    const text = [
+      ...dishTextFields.map((field) => dish[field] || ""),
+      ...dish.ingredients,
+      ...dish.seasonings,
+      ...dish.prep,
+      ...dish.finish
+    ].join(" ");
+    return EXCLUDED_MENU_PATTERN.test(text);
+  }
+
+  const availableMains = mains.filter((dish) => !dishHasExcludedTerm(dish));
+  const availableSides = [...replacementSides, ...sides].filter((dish) => !dishHasExcludedTerm(dish));
 
   function addDays(date, days) {
     const next = new Date(date);
@@ -408,12 +520,22 @@
   }
 
   function pickUnique(list, index, step, count) {
+    if (list.length < count) {
+      throw new Error(`献立候補が不足しています: ${list.length}/${count}`);
+    }
     const picked = [];
     let cursor = index % list.length;
-    while (picked.length < count) {
+    let attempts = 0;
+    while (picked.length < count && attempts < list.length * count * 2) {
       const candidate = list[cursor % list.length];
       if (!picked.some((item) => item.id === candidate.id)) picked.push(candidate);
       cursor += step;
+      attempts += 1;
+    }
+    if (picked.length < count) {
+      list.forEach((candidate) => {
+        if (picked.length < count && !picked.some((item) => item.id === candidate.id)) picked.push(candidate);
+      });
     }
     return picked;
   }
@@ -506,8 +628,8 @@
     const start = new Date(`${WEEK_START}T00:00:00`);
     return Array.from({ length: WEEK_COUNT }, (_, weekIndex) => {
       const weekStart = addDays(start, weekIndex * 7);
-      const mainPicks = pickUnique(mains, weekIndex * 5 + Math.floor(weekIndex / 3), 7, 5);
-      const sidePicks = pickUnique(sides, weekIndex * 3 + Math.floor(weekIndex / 4), 5, 5);
+      const mainPicks = pickUnique(availableMains, weekIndex * 5 + Math.floor(weekIndex / 3), 7, 5);
+      const sidePicks = pickUnique(availableSides, weekIndex * 3 + Math.floor(weekIndex / 4), 3, 5);
       const readyPicks = pickUnique(readyItems, weekIndex * 2, 3, 5);
       const dinners = DAY_NAMES.map((_, dayIndex) => buildDinner(
         weekIndex,
@@ -530,7 +652,7 @@
   const weeks = buildWeeks();
 
   window.MEAL_PLAN_DATA = {
-    generatedAt: "2026-06-17",
+    generatedAt: "2026-06-20",
     servingsNote: SERVINGS_NOTE,
     ...weeks[0],
     weeks
